@@ -22,7 +22,7 @@
             background: rgba(236, 236, 236, 0.12);
             position: absolute;
             top: 142.8px;
-            left: 13px; 
+            left: 23px; 
             
         }
         #temperature > div{
@@ -30,7 +30,7 @@
             height: 91px;
             position: absolute;
             top: 66px;
-            left: 28px;
+            left: 30px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -42,7 +42,7 @@
             background: rgba(236, 236, 236, 0.12);
             position: absolute;
             top: 142px;
-            left: 235px;
+            left: 245px;
            
         }
         #humidity>div{
@@ -63,7 +63,7 @@
             background: rgba(236, 236, 236, 0.05);
             position: absolute;
             top: 143px;
-            left: 464px;
+            left: 480px;
         }
         #waterlevel{
             width: 422px;
@@ -71,7 +71,7 @@
             background: rgba(236, 236, 236, 0.05);
             position: absolute;
             top: 352px;
-            left: 13px; 
+            left: 23px; 
         }
         h1{
             position: relative;
@@ -169,7 +169,7 @@
 <body>
     <div class="container" style="position: absolute; width: 1026px; height: 686px; top: 50%; left: 50%;transform: translate(-50%,-50%);"> 
         
-        <img id="logoImage" src="./assets/image 3.png" alt="">
+        <img id="logoImage" src="../assets/image 3.png" alt="">
 
         <h1 id="title">
             MEGHDOOT
@@ -250,8 +250,7 @@
                     <div id="com1">
                         COM1
                     </div>
-                    <div style="background: #C56767;
-                    ">
+                    <div id="com2">
                         COM2
                     </div>
                     <div id="com3">
@@ -305,7 +304,274 @@
             <!-- <div id="waterlevelimg"></div> -->
         </div>
     </div>
-    <script src="./index.js"></script>
+    <script id="script">
+        var imgpath
+var value
+function imgfun(a){
+    console.log(a)
+    if (a=="Low"){
+          
+        let image = document.getElementById('waterlevelimg')
+        image.setAttribute('src',"../assets/waterLow1.svg")
+        image.style.marginTop='70px'
+
+        let level = document.getElementById('levelIndicator')
+        level.textContent= a
+       
+
+    }
+    else if (a=="Med"){
+         
+        let image = document.getElementById('waterlevelimg')
+        image.setAttribute('src',"../assets/waterLow2.svg")
+        image.style.marginTop='40px'
+
+        
+        let level = document.getElementById('levelIndicator')
+        level.textContent= a
+    }
+    else{
+        
+        let image = document.getElementById('waterlevelimg')
+        image.setAttribute('src',"../assets/waterLow3.svg")
+
+        image.style.marginTop='5px'
+        let level = document.getElementById('levelIndicator')
+        level.textContent= a
+    }
+    
+}
+function compressor1(c1){
+   
+   if (c1==="On") {
+       let com1 = document.getElementById('com1')
+       com1.style.background='#5FCE6A' 
+   } else {
+       let com1 = document.getElementById('com1')
+       com1.style.background='#C56767' 
+   }
+}
+function compressor2(c2){
+   
+   if (c2==="On") {
+       let com2 = document.getElementById('com2')
+       com2.style.background='#5FCE6A' 
+   } else {
+       let com2 = document.getElementById('com2')
+       com2.style.background='#C56767' 
+   }
+}
+function compressor3(c3){
+    if (c3==="On") {
+        let com3 = document.getElementById('com3')
+        com3.style.background= '#5FCE6A' 
+    } else {
+        let com3 = document.getElementById('com3')
+        com3.style.background= '#C56767'
+    }
+    
+}
+function compressor4(c4){
+    if (c4==="On") {
+        let com4 = document.getElementById('com4')
+        com4.style.background= '#5FCE6A'  
+        
+    } else {
+        let com4 = document.getElementById('com4')
+        com4.style.background= '#5FCE6A'  
+    }
+}
+function lower1(lp1){
+    if (lp1==="Off") {
+        let low1 = document.getElementById('low1')
+        low1.style.borderColor= '#BBBABA'
+        low1.style.color='#BBBABA'
+        
+    } else {
+        let low1 = document.getElementById('low1')
+        low1.style.borderColor= '#C56767'
+        low1.style.color='#C56767'
+    }
+}
+function lower3(lp3){
+    if (lp3==="Off") {
+        let low3 = document.getElementById('low3')
+        low3.style.borderColor= '#BBBABA'
+        low3.style.color='#BBBABA'
+        
+    } else {
+        let low3 = document.getElementById('low3')
+        low3.style.borderColor= '#C56767'
+        low3.style.color= '#C56767'
+    }
+}
+function lower2(lp2){
+    if (lp2==="On") {
+        let low2 = document.getElementById('low2')
+        low2.style.borderColor= '#C56767'  
+        low2.style.color= '#C56767' 
+    } else {
+        let low2 = document.getElementById('low2')
+        low2.style.borderColor= '#BBBABA'
+        low2.style.color= '#BBBABA'  
+    }
+}
+function lower4(lp4){
+    if (lp4==="On") {
+        let low4 = document.getElementById('low4')
+        low4.style.borderColor= '#C56767'
+        low4.style.color= '#C56767'
+        
+    } else {
+        let low4 = document.getElementById('low4')
+        low4.style.borderColor= '#BBBABA'
+        low4.style.color= '#BBBABA'
+    }
+}
+function higher1(hp1){
+    if (hp1==="Off") {
+        let high1 = document.getElementById('high1')
+        high1.style.borderColor= '#BBBABA'
+        high1.style.color= '#BBBABA'
+        
+    } else {
+        let high1 = document.getElementById('high1')
+        high1.style.borderColor= '#C56767'
+        high1.style.color= '#C56767'
+    }
+   
+}
+function higher3(hp3){
+    if (hp3==="Off") {
+        let high3 = document.getElementById('high3')
+        high3.style.borderColor= '#BBBABA'
+        high3.style.color= '#BBBABA'
+        
+    } else {
+        let high3 = document.getElementById('high3')
+        high3.style.borderColor= '#C56767' 
+        high3.style.color= '#C56767'
+    }
+}
+function higher2(hp2){
+    if (hp2==="On") {
+        let high2 = document.getElementById('high2')
+        high2.style.borderColor= '#C56767'
+        high2.style.color= '#C56767'
+        
+    } else {
+        let high2 = document.getElementById('high2')
+        high2.style.borderColor= '#BBBABA' 
+        high2.style.color= '#BBBABA'
+    }
+}
+function higher4(hp4){
+    if (hp4==="On") {
+        let high4 = document.getElementById('high4')
+        high4.style.borderColor= '#C56767'
+        high4.style.color= '#C56767'
+
+
+    } else {
+        let high4 = document.getElementById('high4')
+        high4.style.borderColor= '#BBBABA'
+        high4.style.color= '#BBBABA'
+
+ 
+    }
+}
+function pumps(pump1){
+    if (pump1==="Off") {
+        let pump= document.getElementById('pumps')
+        pump.textContent= pump1
+        pump.style.color= '#C56767'
+     } else {
+        let pump= document.getElementById('pumps')
+        pump.textContent= pump1
+        pump.style.color= '#5FCE6A'
+    }
+}
+function powerOffOn(power){
+    // console.log(res.power)
+    if (power==='On') {
+        let images =document.getElementById('powerImageOffOn')
+        images.setAttribute('src',"../assets/poweron.jpg")
+    } else {
+        let images =document.getElementById('powerImageOffOn')
+        images.setAttribute('src',"../assets/poweroff.png") 
+    }
+   
+
+}
+
+
+// const title = document.getElementById('pump') 
+// console.log(title)
+function aja(){
+fetch("https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_test_stage/Maithri_kiosk_test",{
+    method:"GET", 
+    headers:{
+        'Content-Type': 'application/json'
+    }
+})
+.then((res)=>res.json())
+.then((res)=>{
+   console.log(res);
+    let tValue = document.querySelector('#tempValue')
+    tValue.textContent = res.temp + "c" 
+    
+
+
+compressor1(res.c1)
+
+compressor2(res.c2)
+
+compressor3(res.c3)
+
+compressor4(res.c4)
+
+lower1(res.lp1)
+
+lower3(res.lp3)
+
+lower2(res.lp2)
+
+lower4(res.lp4)
+
+higher1(res.hp1)
+
+higher3(res.hp3)
+
+higher2(res.hp2)
+
+higher4(res.hp4)
+
+pumps(res.pump1)
+imgfun(res.level)
+
+powerOffOn(res.power)    
+})
+}
+// aja()
+setInterval(aja,5000)
+
+
+// function getuse(){
+//     var xhr = new XMLHttpRequest()
+//     xhr.open('GET',"https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_test_stage/Maithri_kiosk_test",true)
+
+//     xhr.onready = function(){
+        
+//             console.log("I am ajax")
+        
+//     }
+//     xhr.send()
+// }
+// setInterval(getuse, 1000)
+
+
+
+    </script>
 </body>
 
 </html>
