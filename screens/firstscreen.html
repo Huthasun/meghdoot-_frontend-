@@ -127,7 +127,7 @@
             justify-content: center;
             /* flex-shrink: 0; */
              background: #5FCE6A;
-             border: 0px;
+             border: 0;
              color:  #C4C4C4;
 ;
         }
@@ -212,7 +212,7 @@
                         <path d="M99.0276 109H97.3733V101.009L94.9329 101.843V100.441L98.8157 99.0127H99.0276V109ZM109.254 104.81C109.254 106.241 108.985 107.321 108.447 108.05C107.914 108.774 107.101 109.137 106.007 109.137C104.931 109.137 104.12 108.784 103.573 108.077C103.031 107.366 102.753 106.316 102.739 104.926V103.203C102.739 101.772 103.006 100.699 103.539 99.9834C104.077 99.2679 104.895 98.9102 105.993 98.9102C107.082 98.9102 107.894 99.2588 108.427 99.9561C108.965 100.653 109.24 101.697 109.254 103.087V104.81ZM107.593 102.95C107.593 102.016 107.465 101.332 107.21 100.899C106.955 100.462 106.549 100.243 105.993 100.243C105.451 100.243 105.052 100.451 104.797 100.865C104.542 101.275 104.407 101.918 104.394 102.793V105.049C104.394 105.979 104.523 106.671 104.783 107.127C105.043 107.583 105.451 107.811 106.007 107.811C106.54 107.811 106.934 107.601 107.189 107.182C107.445 106.758 107.579 106.097 107.593 105.199V102.95ZM117.491 104.81C117.491 106.241 117.222 107.321 116.684 108.05C116.151 108.774 115.338 109.137 114.244 109.137C113.168 109.137 112.357 108.784 111.81 108.077C111.268 107.366 110.99 106.316 110.976 104.926V103.203C110.976 101.772 111.243 100.699 111.776 99.9834C112.314 99.2679 113.132 98.9102 114.23 98.9102C115.319 98.9102 116.131 99.2588 116.664 99.9561C117.202 100.653 117.477 101.697 117.491 103.087V104.81ZM115.83 102.95C115.83 102.016 115.702 101.332 115.447 100.899C115.192 100.462 114.786 100.243 114.23 100.243C113.688 100.243 113.289 100.451 113.034 100.865C112.779 101.275 112.644 101.918 112.631 102.793V105.049C112.631 105.979 112.76 106.671 113.02 107.127C113.28 107.583 113.688 107.811 114.244 107.811C114.777 107.811 115.171 107.601 115.426 107.182C115.682 106.758 115.816 106.097 115.83 105.199V102.95Z" fill="#D8D8D8"/>
                         <!-- <text x="45" y="73" fill="#f5f5f5" style="font:bold 2em serif" v-if="humidityValue<100">{{humidityValue}}</text> -->
                         <!-- <text x="30" y="73" fill="#D8D8D8" style="font:bold 2em serif" v-else>30RH</text> -->
-                        <text x="30" y="73" fill="#D8D8D8" style="font:bold 2em serif" v-else>30</text>
+                        <text x="30" y="73" fill="#D8D8D8" style="font:bold 2em serif" v-else id="humtext"></text>
 
                         <path d="M74.8762 68.7949H72.5422V74H69.6125V59.7812H74.8957C76.5754 59.7812 77.871 60.1556 78.7824 60.9043C79.6939 61.653 80.1496 62.7109 80.1496 64.0781C80.1496 65.0482 79.938 65.8587 79.5148 66.5098C79.0982 67.1543 78.4634 67.6686 77.6105 68.0527L80.6867 73.8633V74H77.5422L74.8762 68.7949ZM72.5422 66.4219H74.9055C75.6411 66.4219 76.2108 66.2363 76.6145 65.8652C77.0181 65.4876 77.2199 64.9701 77.2199 64.3125C77.2199 63.6419 77.0279 63.1146 76.6438 62.7305C76.2661 62.3464 75.6835 62.1543 74.8957 62.1543H72.5422V66.4219ZM94.3582 74H91.4285V67.9062H85.7156V74H82.7859V59.7812H85.7156V65.543H91.4285V59.7812H94.3582V74Z" fill="#C4C4C4"/>
                         <defs>
@@ -300,6 +300,24 @@
             <h2 style="position: absolute; top: 16px; left: 325px;" id="levelIndicator">
                 
             </h2>
+            <!-- <div>
+                <svg width="195" height="20" viewBox="0 0 195 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                    <path d="M0 1.06212C9.62391 2.33411 17.9644 4.65027 38.1746 1.59751C58.3848 -1.45527 64.6618 0.960086 74.2857 2.23208C81.5036 3.16487 85.4397 3.30083 104.206 1.06212C109.881 0.182971 123.81 -0.972491 134.127 1.43887C144.444 3.85023 161.124 2.19244 168.175 1.06212C173.677 0.354852 186.746 -0.635328 195 1.06212V19.5241C194.828 19.6827 194.071 20 192.421 20H3.09524C2.06349 20 0 19.8731 0 19.3655V1.06212Z" fill="url(#paint0_linear)"/>
+                    </g>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="97.5" y1="-1.68298e-07" x2="97.5" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#11D4FF"/>
+                    <stop offset="1" stop-color="#C4C4C4" stop-opacity="0.22"/>
+                    </linearGradient>
+                    <clipPath id="clip0">
+                    <rect width="195" height="20" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+            </div> -->
+           
+                
             <img id="waterlevelimg" src="" alt="" >
             <!-- <div id="waterlevelimg"></div> -->
         </div>
@@ -313,7 +331,10 @@ function imgfun(a){
           
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src',"../assets/waterLow1.svg")
-        image.style.marginTop='70px'
+        // image.setAttribute('height',20)
+        // image.style.marginTop='70px'
+        // image.style.position= "absolute "
+        // image.style.top= "70px"
 
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -324,7 +345,8 @@ function imgfun(a){
          
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src',"../assets/waterLow2.svg")
-        image.style.marginTop='40px'
+        // image.setAttribute('height',46)
+        // image.style.marginTop='40px'
 
         
         let level = document.getElementById('levelIndicator')
@@ -334,8 +356,9 @@ function imgfun(a){
         
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src',"../assets/waterLow3.svg")
+        // image.setAttribute('height',95)
 
-        image.style.marginTop='5px'
+        // image.style.marginTop='5px'
         let level = document.getElementById('levelIndicator')
         level.textContent= a
     }
@@ -345,10 +368,11 @@ function compressor1(c1){
    
    if (c1==="On") {
        let com1 = document.getElementById('com1')
-       com1.style.background='#5FCE6A' 
+       com1.style.background='#5FCE6A'
+     
    } else {
        let com1 = document.getElementById('com1')
-       com1.style.background='#C56767' 
+       com1.style.background='#C56767'
    }
 }
 function compressor2(c2){
@@ -356,29 +380,35 @@ function compressor2(c2){
    if (c2==="On") {
        let com2 = document.getElementById('com2')
        com2.style.background='#5FCE6A' 
+       com2.style.border= "2px solid #5FCE6A" 
    } else {
        let com2 = document.getElementById('com2')
-       com2.style.background='#C56767' 
+       com2.style.background='#C56767'
+       com2.style.border= "2px solid #C56767"  
    }
 }
 function compressor3(c3){
     if (c3==="On") {
         let com3 = document.getElementById('com3')
-        com3.style.background= '#5FCE6A' 
+        com3.style.background= '#5FCE6A'
+        com3.style.border= "2px solid #5FCE6A"  
     } else {
         let com3 = document.getElementById('com3')
         com3.style.background= '#C56767'
+        com3.style.border= "2px solid #C56767" 
     }
     
 }
 function compressor4(c4){
     if (c4==="On") {
         let com4 = document.getElementById('com4')
-        com4.style.background= '#5FCE6A'  
+        com4.style.background= '#5FCE6A' 
+        com4.style.border= "2px solid #5FCE6A"  
         
     } else {
         let com4 = document.getElementById('com4')
-        com4.style.background= '#5FCE6A'  
+        com4.style.background= '#C56767'  
+        com4.style.border= "2px solid #C56767" 
     }
 }
 function lower1(lp1){
@@ -507,7 +537,7 @@ function powerOffOn(power){
 
 // const title = document.getElementById('pump') 
 // console.log(title)
-function aja(){
+function restApi(){
 fetch("https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_test_stage/Maithri_kiosk_test",{
     method:"GET", 
     headers:{
@@ -519,6 +549,10 @@ fetch("https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_tes
    console.log(res);
     let tValue = document.querySelector('#tempValue')
     tValue.textContent = res.temp + "c" 
+
+    let hvalue = document.querySelector('#humtext')
+    hvalue.textContent = res.hum
+
     
 
 
@@ -553,7 +587,80 @@ powerOffOn(res.power)
 })
 }
 // aja()
-setInterval(aja,5000)
+// setrestApi(aja,5000)
+
+function websocket(){
+    let url = "ws://localhost:8765"
+
+    const socket = new WebSocket(url)
+
+    socket.onopen = (event)=>
+    {
+        console.log("websocket established",event);
+    }
+    socket.onmessage = (event)=>
+    {
+        const res = JSON.parse(event.data)
+
+        // console.log(res);
+    let tValue = document.querySelector('#tempValue')
+    tValue.textContent = res.temp + "c"
+    
+    let hvalue = document.querySelector('#humtext')
+    hvalue.textContent = res.hum
+    
+
+
+compressor1(res.c1)
+
+compressor2(res.c2)
+
+compressor3(res.c3)
+
+compressor4(res.c4)
+
+lower1(res.lp1)
+
+lower3(res.lp3)
+
+lower2(res.lp2)
+
+lower4(res.lp4)
+
+higher1(res.hp1)
+
+higher3(res.hp3)
+
+higher2(res.hp2)
+
+higher4(res.hp4)
+
+pumps(res.pump1)
+imgfun(res.level)
+
+powerOffOn(res.power)    
+
+
+    }
+    socket.onclose = () =>
+    {
+        socket.onopen = (event) =>
+        {
+            console.log('Websocket connection established again after:',event);
+        }
+    }
+
+    return() =>
+    {
+        if (socket)
+        {
+            console.log("websocket connection closed: close event");
+            socket.close()    
+        }
+    }
+    
+}
+websocket()
 
 
 // function getuse(){

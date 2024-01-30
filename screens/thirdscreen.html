@@ -170,12 +170,12 @@
                 </p>
             </div>
             <img src="" alt="" style="position: absolute; top: 34px; left: 428px;" id="powerbutton">
-            <div style="display: flex; justify-content: center;">
+            <div style="display: flex; justify-content: center; margin-top: 50px;" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="440" height="2" viewBox="0 0 440 2" fill="none" >
                 <path d="M0 0.620605H440" stroke="#9E9E9E"/>
               </svg>
             </div>
-            <div class="compessorContainer"  style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <div class="compessorContainer"  style="margin-top: 20px;display: flex; justify-content: center; align-items: center; flex-direction: column;">
                 <div id="compessor1" style="margin-top: 90px; width: 375px;height: 60px;">
                     <div style=" height: 55px;  background: #5FCE6A; border-radius: 50px; display: grid; place-items: center; color: #FFF;" id="comp1">
                         compessor1
@@ -216,12 +216,12 @@
         var imgpath
 var value
 function imgfun(a){
-    console.log(a) 
+    // console.log(a) 
     if (a=="Low"){
           
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src', "../assets/waterLow1.svg")
-        image.style.marginTop='100px'
+        // image.style.marginTop='100px'
 
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -232,7 +232,7 @@ function imgfun(a){
          
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src', "../assets/waterLow2.svg")
-        image.style.marginTop='75px'
+        // image.style.marginTop='75px'
 
         
         let level = document.getElementById('levelIndicator')
@@ -242,7 +242,7 @@ function imgfun(a){
         
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src', "../assets/waterLow3.svg")
-        image.style.marginTop='37px'
+        // image.style.marginTop='37px'
 
         
         let level = document.getElementById('levelIndicator')
@@ -304,7 +304,7 @@ function pumps(b){
     }
 }
 
-function aja(){
+function restApi(){
 fetch("https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_test_stage/Maithri_kiosk_test",{
     method:"GET",
     headers:{
@@ -338,10 +338,10 @@ pumps(res.pump1)
 
 })
 }
-// setInterval(aja,5000)
+// setInterval(restApi,5000)
 
-// function websocket(){
-    let url = "ws://65.0.154.172:8000_web_socket/?machine_id=CSD1&username=user2"
+function websocket(){
+    let url = "ws://localhost:8765"
 
     const socket = new WebSocket(url)
 
@@ -351,7 +351,28 @@ pumps(res.pump1)
     }
     socket.onmessage = (event)=>
     {
-        console.log(JSON.parse(event.data));
+        const res = JSON.parse(event.data)
+        // console.log(res);
+        let tvalue = document.querySelector('#tempValue')
+    tvalue.textContent= res.temp + "c"
+
+    let hvalue = document.querySelector('#humtext')
+    hvalue.textContent = res.hum
+
+
+compressor1(res.c1)
+
+lower1(res.lp1)
+
+higher1(res.hp1)
+imgfun(res.level)
+
+
+powerImageOffOn(res.power)
+
+pumps(res.pump1)
+
+        // console.log(JSON.parse(event.data));
 
     }
     socket.onclose = () =>
@@ -362,16 +383,16 @@ pumps(res.pump1)
         }
     }
 
-    // return () =>
-    // {
-    //     if (socket)
-    //     {
-    //      console.log("websocket connection closed: close event");
-    //      socket.close()   
-    //     }
-    // }
-// }
-// websocket()
+    return () =>
+    {
+        if (socket)
+        {
+         console.log("websocket connection closed: close event");
+         socket.close()   
+        }
+    }
+}
+websocket()
 
 
     </script>

@@ -173,7 +173,7 @@
                     <path d="M99.0276 109H97.3733V101.009L94.9329 101.843V100.441L98.8157 99.0127H99.0276V109ZM109.254 104.81C109.254 106.241 108.985 107.321 108.447 108.05C107.914 108.774 107.101 109.137 106.007 109.137C104.931 109.137 104.12 108.784 103.573 108.077C103.031 107.366 102.753 106.316 102.739 104.926V103.203C102.739 101.772 103.006 100.699 103.539 99.9834C104.077 99.2679 104.895 98.9102 105.993 98.9102C107.082 98.9102 107.894 99.2588 108.427 99.9561C108.965 100.653 109.24 101.697 109.254 103.087V104.81ZM107.593 102.95C107.593 102.016 107.465 101.332 107.21 100.899C106.955 100.462 106.549 100.243 105.993 100.243C105.451 100.243 105.052 100.451 104.797 100.865C104.542 101.275 104.407 101.918 104.394 102.793V105.049C104.394 105.979 104.523 106.671 104.783 107.127C105.043 107.583 105.451 107.811 106.007 107.811C106.54 107.811 106.934 107.601 107.189 107.182C107.445 106.758 107.579 106.097 107.593 105.199V102.95ZM117.491 104.81C117.491 106.241 117.222 107.321 116.684 108.05C116.151 108.774 115.338 109.137 114.244 109.137C113.168 109.137 112.357 108.784 111.81 108.077C111.268 107.366 110.99 106.316 110.976 104.926V103.203C110.976 101.772 111.243 100.699 111.776 99.9834C112.314 99.2679 113.132 98.9102 114.23 98.9102C115.319 98.9102 116.131 99.2588 116.664 99.9561C117.202 100.653 117.477 101.697 117.491 103.087V104.81ZM115.83 102.95C115.83 102.016 115.702 101.332 115.447 100.899C115.192 100.462 114.786 100.243 114.23 100.243C113.688 100.243 113.289 100.451 113.034 100.865C112.779 101.275 112.644 101.918 112.631 102.793V105.049C112.631 105.979 112.76 106.671 113.02 107.127C113.28 107.583 113.688 107.811 114.244 107.811C114.777 107.811 115.171 107.601 115.426 107.182C115.682 106.758 115.816 106.097 115.83 105.199V102.95Z" fill="#D8D8D8"/>
                     <!-- <text x="45" y="73" fill="#f5f5f5" style="font:bold 2em serif" v-if="humidityValue<100">{{humidityValue}}</text> -->
                     <!-- <text x="30" y="73" fill="#D8D8D8" style="font:bold 2em serif" v-else>30RH</text> -->
-                    <text x="30" y="73" fill="#D8D8D8" style="font:bold 2em serif" v-else>30</text>
+                    <text x="30" y="73" fill="#D8D8D8" style="font:bold 2em serif" v-else id="humtext"></text>
 
                     <path d="M74.8762 68.7949H72.5422V74H69.6125V59.7812H74.8957C76.5754 59.7812 77.871 60.1556 78.7824 60.9043C79.6939 61.653 80.1496 62.7109 80.1496 64.0781C80.1496 65.0482 79.938 65.8587 79.5148 66.5098C79.0982 67.1543 78.4634 67.6686 77.6105 68.0527L80.6867 73.8633V74H77.5422L74.8762 68.7949ZM72.5422 66.4219H74.9055C75.6411 66.4219 76.2108 66.2363 76.6145 65.8652C77.0181 65.4876 77.2199 64.9701 77.2199 64.3125C77.2199 63.6419 77.0279 63.1146 76.6438 62.7305C76.2661 62.3464 75.6835 62.1543 74.8957 62.1543H72.5422V66.4219ZM94.3582 74H91.4285V67.9062H85.7156V74H82.7859V59.7812H85.7156V65.543H91.4285V59.7812H94.3582V74Z" fill="#C4C4C4"/>
                     <defs>
@@ -256,7 +256,7 @@ function imgfun(a){
     if (a=='Low') {
         let image = document.getElementById('waterlevelimg')
         image.setAttribute("src","../assets/waterLow1.svg")
-        image.style.marginTop='70px'
+        // image.style.marginTop='70px'
 
         let level=document.getElementById('levelIndicator')
         level.textContent= a
@@ -265,7 +265,7 @@ function imgfun(a){
     else if(a=='Med'){
         let image = document.getElementById('waterlevelimg')
         image.setAttribute("src","../assets/waterLow2.svg")
-        image.style.marginTop='45px'
+        // image.style.marginTop='45px'
 
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -273,7 +273,7 @@ function imgfun(a){
     else{
         let image =document.getElementById('waterlevelimg')
         image.setAttribute("src","../assets/waterLow3.svg")
-        image.style.marginTop='5px'
+        // image.style.marginTop='5px'
 
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -362,7 +362,7 @@ function pumps(p1){
         pump1.style.color='#C56767'
     }
 }
-function aja(){
+function restApi(){
 fetch("https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_test_stage/Maithri_kiosk_test",{
     method:"GET",
     headers:{
@@ -374,6 +374,11 @@ fetch("https://djzp2yaxrd.execute-api.ap-south-1.amazonaws.com/Maithri_kiosk_tes
 
     let tvalue = document.querySelector('#tempValue')
     tvalue.textContent= res.temp + "c"
+
+    let hvalue = document.querySelector('#humtext')
+    hvalue.textContent = res.hum
+
+
 
 
 compressor1(res.c1)
@@ -396,7 +401,65 @@ pumps(res.pump1)
 
 })
 }
-setInterval(aja,5000)
+// setInterval(restApi,5000)
+
+function websocket(){
+    let url = "ws://localhost:8765"
+     
+    const socket = new WebSocket(url)
+
+    socket.onopen = (event)=>
+    {
+        console.log("websocket established",event)
+    }
+    socket.onmessage = (event)=>
+    {
+        const res = JSON.parse(event.data)
+
+        
+        let tvalue = document.querySelector('#tempValue')
+        tvalue.textContent= res.temp + "c"
+
+        let hvalue = document.querySelector('#humtext')
+        hvalue.textContent = res.hum
+
+
+compressor1(res.c1)
+
+compressor2(res.c2)
+
+lower1(res.lp1)
+
+lower2(res.lp2)
+
+higher1(res.hp1)
+
+higher2(res.hp2)
+imgfun(res.level)
+
+
+powerImageOffOn(res.power)
+
+pumps(res.pump1)
+    }
+    socket.onclose = () =>
+    {
+        socket.onopen = (event) =>
+        {
+           console.log("websocket connection established agin after",event); 
+        }
+
+
+    }
+    {
+        if (socket)
+        {
+            console.log("websocket connection closed: close event");
+            socket.close
+        }
+    }
+}
+websocket()
 
 
 
