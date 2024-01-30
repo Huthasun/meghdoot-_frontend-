@@ -97,9 +97,7 @@
        
         #waterlevelimg{
             width: 422px;
-            height: 217.479px;
-            position: absolute;
-            top: 47px;
+           
         }
     </style>
 </head>
@@ -221,7 +219,8 @@ function imgfun(a){
           
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src', "../assets/waterLow1.svg")
-        // image.style.marginTop='100px'
+        image.style.position = "absolute"
+        image.style.top ="242px"
 
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -232,8 +231,9 @@ function imgfun(a){
          
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src', "../assets/waterLow2.svg")
-        // image.style.marginTop='75px'
-
+        
+        image.style.position = "absolute"
+        image.style.top ="186px"
         
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -242,8 +242,8 @@ function imgfun(a){
         
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src', "../assets/waterLow3.svg")
-        // image.style.marginTop='37px'
-
+        image.style.position = "absolute"
+        image.style.top ="110px"
         
         let level = document.getElementById('levelIndicator')
         level.textContent= a

@@ -106,10 +106,7 @@
         }
         #waterlevelimg{
             width: 422px;
-            height: 217.479px;
-            position: absolute;
-            top: 85px;
-    
+           
         }
         .statusContainer{
             display: flex;
@@ -331,10 +328,9 @@ function imgfun(a){
           
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src',"../assets/waterLow1.svg")
-        // image.setAttribute('height',20)
-        // image.style.marginTop='70px'
-        // image.style.position= "absolute "
-        // image.style.top= "70px"
+        
+        image.style.position= "absolute"
+        image.style.top= "242px"
 
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -345,9 +341,8 @@ function imgfun(a){
          
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src',"../assets/waterLow2.svg")
-        // image.setAttribute('height',46)
-        // image.style.marginTop='40px'
-
+        image.style.position = "absolute"
+        image.style.top ="186px"
         
         let level = document.getElementById('levelIndicator')
         level.textContent= a
@@ -356,9 +351,10 @@ function imgfun(a){
         
         let image = document.getElementById('waterlevelimg')
         image.setAttribute('src',"../assets/waterLow3.svg")
-        // image.setAttribute('height',95)
+        image.style.position = "absolute"
+        image.style.top ="110px"
 
-        // image.style.marginTop='5px'
+        
         let level = document.getElementById('levelIndicator')
         level.textContent= a
     }
